@@ -1,4 +1,10 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Gallery from "../components/Gallery.astro";
 ---
 
-<h1>Astro</h1>
+<MainLayout title="Gallery">
+	<Header/>
+	<Gallery/>
+</MainLayout>
