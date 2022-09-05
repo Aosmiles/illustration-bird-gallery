@@ -1,4 +1,17 @@
+:root {
+  --font-size-xs: .5rem;
+  --font-size-s: 1rem;
+  --font-size-m: 2rem;
+  --font-size-l: 3rem;
+  --font-size-xl: clamp(1.5rem, 10vw + 1rem, 10rem);
+}
+
 body {
   margin: auto;
   width: 80%;
+  font-size: var(--font-size-s);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
 }

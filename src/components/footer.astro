@@ -4,7 +4,10 @@ const year = new Date().getFullYear()
 
 
 <footer>
-  <p>All Images Copyright &copy; {year} Kris Mukai. All Rights Reserved.</p>
+  <p class="copywrite">
+    <span>All Images Copyright &copy; {year} Kris Mukai.&nbsp;</span>
+    <span>All Rights Reserved. </span>
+  </p>
   <p>Site by <span class="name">Arlin Ortiz.</span></p> 
 </footer>
 
@@ -12,9 +15,16 @@ const year = new Date().getFullYear()
   footer {
     margin-top: 5rem;
     padding-left: 1rem;
-    /* display: flex;
-    justify-content: space-between; */
     color: grey;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+
+  .copywrite {
+    display: flex;
+    flex-wrap: wrap;
   }
 
 </style>
