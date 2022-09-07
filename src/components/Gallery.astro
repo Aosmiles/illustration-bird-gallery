@@ -14,20 +14,17 @@ cloudinary.v2.config({
   api_secret: import.meta.env.CLOUDINARY_API_SECRET,
   secure: true 
 });
-let rate;
+
 const cloud_birds = await cloudinary.v2.search.expression(`folder:${cloudFolder}/*`)
   .sort_by('public_id','asc')
   .max_results(30)
   .execute()
   .then(res => {
-    console.log(res.rate_limit_remaining);
-    rate = res.rate_limit_remaining
     return res.resources
   });
 
-// const birdImages = await Astro.glob('../assets/bird_images/*.jpg')
 ---
-<p>{rate}</p>
+
 <ul class="gallery" id="bird-gallery">
   {
     cloud_birds.map((img) => (
