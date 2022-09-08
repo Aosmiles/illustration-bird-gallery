@@ -1,0 +1,25 @@
+---
+
+export interface props {
+  href: string
+}
+
+const { href } = Astro.props;
+const current = Astro.url.pathname === href ? 'current-page' : '';
+
+---
+
+<a href={href} class={current}>
+  <slot/>
+</a>
+
+<style>
+  a:hover {
+    color: blue;
+  }
+
+  .current-page {
+    text-decoration: underline;
+  }
+
+</style>
