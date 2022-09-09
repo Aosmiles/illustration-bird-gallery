@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
-import cloudinary from 'cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
 
 export interface props {
   cloudFolder: string;
@@ -8,14 +8,14 @@ export interface props {
 
 const { cloudFolder } = Astro.props;
 
-cloudinary.v2.config({ 
+cloudinary.config({ 
   cloud_name: 'arlin-ortiz', 
   api_key: import.meta.env.CLOUDINARY_API_KEY, 
   api_secret: import.meta.env.CLOUDINARY_API_SECRET,
   secure: true 
 });
 
-const cloud_birds = await cloudinary.v2.search.expression(`folder:${cloudFolder}/*`)
+const cloud_birds = await cloudinary.search.expression(`folder:${cloudFolder}/*`)
   .sort_by('public_id','asc')
   .max_results(30)
   .execute()
