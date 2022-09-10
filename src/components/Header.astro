@@ -1,17 +1,29 @@
+---
+import Navbar from "./Navbar.astro";
+---
 
-
-<header class="header">
-  <div class="title__container">
-    <h1>BIRDS</h1>
+<header>
+  <div>
+    <a href="/index.html"><h1>BIRDS</h1></a>
     <p>By Kris Mukai</p>
   </div>
+  <Navbar/>
 </header>
 
 <style>
 
-  header {
-    padding-left: 1rem;
-    margin: 3rem 0;
+  h1 {
+    line-height: 1;
   }
+  header {
+    /* padding-left: 1rem; */
+    margin: 3rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
 
 </style>

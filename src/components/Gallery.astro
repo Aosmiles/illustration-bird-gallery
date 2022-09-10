@@ -1,21 +1,42 @@
 ---
 import { Image } from '@astrojs/image/components';
-const birdImages = await Astro.glob('../assets/bird_images/*.jpg')
----
+import { v2 as cloudinary } from 'cloudinary';
 
+export interface props {
+  cloudFolder: string;
+}
+
+const { cloudFolder } = Astro.props;
+
+cloudinary.config({ 
+  cloud_name: 'arlin-ortiz', 
+  api_key: import.meta.env.CLOUDINARY_API_KEY, 
+  api_secret: import.meta.env.CLOUDINARY_API_SECRET,
+  secure: true 
+});
+
+const cloud_birds = await cloudinary.search.expression(`folder:${cloudFolder}/*`)
+  .sort_by('public_id','asc')
+  .max_results(30)
+  .execute()
+  .then(res => {
+    return res.resources
+  });
+
+---
 
 <ul class="gallery" id="bird-gallery">
   {
-    birdImages.map((img) => (
+    cloud_birds.map((img) => (
       <li>
-        <a href={img.default.src}
-            data-pswp-width={img.default.width} 
-            data-pswp-height={img.default.height} 
+        <a href={img.url}
+            data-pswp-width={img.width} 
+            data-pswp-height={img.height} 
             target="_blank">
           <Image
-            src={img.default.src}
-            width={300}
-            aspectRatio={img.default.width / img.default.height}
+            src={img.url}
+            width={200}
+            aspectRatio={img.width / img.height}
             class="gallery__image"
             />
         </a>
@@ -26,7 +47,6 @@ const birdImages = await Astro.glob('../assets/bird_images/*.jpg')
 
 <style>
   .gallery {
-    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
@@ -39,7 +59,7 @@ const birdImages = await Astro.glob('../assets/bird_images/*.jpg')
   }
 
   .gallery img {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
     height: 100%;
     vertical-align: middle;
