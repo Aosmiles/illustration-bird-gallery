@@ -8,13 +8,6 @@ export interface props {
 
 const { cloudFolder } = Astro.props;
 
-cloudinary.config({ 
-  cloud_name: 'arlin-ortiz', 
-  api_key: import.meta.env.CLOUDINARY_API_KEY, 
-  api_secret: import.meta.env.CLOUDINARY_API_SECRET,
-  secure: true 
-});
-
 const cloud_birds = await cloudinary.search.expression(`folder:${cloudFolder}/*`)
   .sort_by('public_id','asc')
   .max_results(30)
