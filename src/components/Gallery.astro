@@ -20,7 +20,7 @@ const cloud_birds = await cloudinary.search.expression(`folder:${cloudFolder}/*`
 
 <ul class="gallery" id="bird-gallery">
   {
-    cloud_birds.map((img) => (
+    cloud_birds.map((img: { url: any; width: number; height: number; }) => (
       <li>
         <a href={img.url}
             data-pswp-width={img.width} 
