@@ -1,6 +1,9 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Gallery from "../components/Gallery.astro";
+import { setupCloudinary } from "../utility.js"
+
+setupCloudinary();
 ---
 
 <MainLayout title="Bird Gallery">
