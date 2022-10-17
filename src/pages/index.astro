@@ -1,11 +1,19 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Gallery from "../components/Gallery.astro";
-import { setupCloudinary } from "../utility.js"
+import GalleryMasonry from "../components/GalleryMasonry.astro";
+import { v2 as cloudinary } from "cloudinary";
 
-setupCloudinary();
+const config = {
+  cloud_name: "arlin-ortiz",
+  api_key: import.meta.env.CLOUDINARY_API_KEY,
+  api_secret: import.meta.env.CLOUDINARY_API_SECRET,
+  secure: true,
+};
+cloudinary.config(config);
 ---
 
 <MainLayout title="Bird Gallery">
-	<Gallery cloudFolder="kris-bird-illustrations"/>
+  <Gallery cloudFolder="kris-bird-illustrations" />
+  <GalleryMasonry cloudFolder="other-works" />
 </MainLayout>
