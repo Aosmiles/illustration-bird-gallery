@@ -1,23 +1,33 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 ---
+
 <MainLayout title="About">
-<section class="about">
-  <h2 class="about-title">About</h2>
-    <p>Here is a gallery of birds drawn by Kris Mukai. Gallery site created by Arlin Ortiz. 
-      This site was created as a learning expiriance for building static sites using 
-      <a href="https://astro.build/" target="_blank">Astro</a>, 
-      <a href="https://photoswipe.com/" target="_blank">Photoswipe</a>, and 
+  <section class="about">
+    <h2 class="about-title">About</h2>
+    <p>
+      Here is a gallery of birds drawn by Kris Mukai. Gallery site created by
+      Arlin Ortiz. This site was created as a learning experience for building
+      static sites using
+      <a href="https://astro.build/" target="_blank">Astro</a>,
+      <a href="https://photoswipe.com/" target="_blank">Photoswipe</a>, and
       <a href="https://cloudinary.com/" target="_blank">Cloudinary</a>.
     </p>
-    <br>
-    <p>Kris is an illustrator, writer, and cartoonist. <a href="http://www.hikrismukai.com/" target="_blank">Website</a></p>
-    <p>Arlin is an illustrator, developer, and designer. <a href="https://arlinortiz.com/" target="_blank">Website</a></p>
-</section>
+    <br />
+    <p>
+      Kris is an illustrator, writer, and cartoonist. <a
+        href="http://www.hikrismukai.com/"
+        target="_blank">Website</a>
+    </p>
+    <p>
+      Arlin is an illustrator, developer, and designer. <a
+        href="https://arlinortiz.com/"
+        target="_blank">Website</a>
+    </p>
+  </section>
 </MainLayout>
 
 <style>
-
   .about {
     max-width: 70ch;
     margin-left: 1rem;
@@ -33,5 +43,4 @@ import MainLayout from "../layouts/MainLayout.astro";
   .about a:hover {
     color: blue;
   }
-
 </style>
