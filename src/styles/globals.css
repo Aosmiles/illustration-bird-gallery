@@ -1,5 +1,5 @@
 :root {
-  --font-size-xs: .75rem;
+  --font-size-xs: 0.75rem;
   --font-size-s: 1rem;
   --font-size-m: 2rem;
   --font-size-l: 3rem;
@@ -12,14 +12,14 @@ body {
   font-size: var(--font-size-s);
 }
 
-
 h1 {
   font-size: var(--font-size-xl);
 }
 
-
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 a {
